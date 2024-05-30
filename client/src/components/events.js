@@ -20,7 +20,7 @@ const eventsData = [
         date: '2024-03-29',
         title: 'Sportz Seminar',
         description: 'Session by: Owners, Technical Staff, Nutritionist, Physio and Founder members',
-        images: ['path/to/image2.jpg', '/images/Farewell.webp'],
+        images: ['/images/seminar3.webp', '/images/Farewell.webp'],
     },
     {
         id: 4,
@@ -55,22 +55,22 @@ const Events = () => {
     };
 
     return (
-        <div className="container mx-auto px-8 py-8 mt-[80px]">
+        <div className="container mx-auto px-4 py-8 mt-[80px]">
             <h1 className="gradient-text text-3xl font-bold mb-4 text-center">Our Events</h1>
-            <p className="text-left text-lg mx-12">At Aryans Football Club, we believe in the power of community and participation. 
+            <p className="text-left text-lg mx-4 sm:mx-8 md:mx-24">At Aryans Football Club, we believe in the power of community and participation. 
             Throughout the season, we organize a variety of exciting events designed to engage and inspire every member of our club. 
             From competitive matches and skill-building workshops to community outreach programs and fun-filled family days, there 
-            is something for everyone.</p><p className="text-left text-lg mx-12 mb-4">We encourage all players, coaches, parents, and 
+            is something for everyone.</p><p className="text-left text-lg mx-4 sm:mx-8 md:mx-24 mb-4">We encourage all players, coaches, parents, and 
             supporters to get involved and make the most of these opportunities. Our events not only enhance your football 
             skills but also foster teamwork, sportsmanship, and a strong sense of belonging. Join us and be a part of the 
             vibrant Aryans FC community, where every event is a step towards growth and camaraderie.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-2 sm:mx-8 md:mx-24">
                 {eventsData.map((event) => (
-                    <div key={event.id} className="bg-white shadow-xl rounded-lg p-6 cursor-pointer" onClick={() => openModal(event)}>
+                    <div key={event.id} className="bg-white shadow-2xl rounded-lg p-4 cursor-pointer" onClick={() => openModal(event)}>
                         <img src={event.images[0]} alt={event.title} className="w-full h-48 object-cover rounded-t-lg" />
-                        <div className="p-4">
+                        <div className="p-2">
                             <h2 className="text-2xl font-semibold mb-2">{event.title}</h2>
-                            <p className="text-gray-600 mb-4">{new Date(event.date).toLocaleDateString()}</p>
+                            <p className="text-gray-600">{new Date(event.date).toLocaleDateString()}</p>
                             <p className="text-gray-700">{event.description}</p>
                         </div>
                     </div>
@@ -78,14 +78,15 @@ const Events = () => {
             </div>
 
             {selectedEvent && (
-                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal" overlayClassName="overlay">
+                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal w-11/12 md:w-4/5 max-h-full overflow-y-auto mx-auto mt-10 rounded-lg" 
+                overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                     <div className="bg-white p-6 mt-16 rounded-lg">
-                        <h2 className="text-2xl font-bold mb-4">{selectedEvent.title}</h2>
-                        <p className="text-gray-600 mb-4">{new Date(selectedEvent.date).toLocaleDateString()}</p>
+                        <h2 className="text-2xl font-bold mb-2">{selectedEvent.title}</h2>
+                        <p className="text-gray-600">{new Date(selectedEvent.date).toLocaleDateString()}</p>
                         <p className="text-gray-700 mb-4">{selectedEvent.description}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                             {selectedEvent.images.map((image, index) => (
-                                <img key={index} src={image} alt={`${selectedEvent.title} ${index + 1}`} className="w-full h-48 object-cover rounded-lg" />
+                                <img key={index} src={image} alt={`${selectedEvent.title} ${index + 1}`} className="w-full h-auto object-cover rounded-lg" />
                             ))}
                         </div>
                         <button onClick={closeModal} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

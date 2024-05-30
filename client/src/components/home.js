@@ -30,7 +30,6 @@ const Home = () => {
         dots: true,
         infinite: true,
         speed: 500,
-
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -40,21 +39,20 @@ const Home = () => {
 
     return (
         <div>
-            <section className="bg-cover bg-center h-screen mt-16 text-white" style={{ backgroundImage: "url('/images/football1.webp')" }}>
+            <section className="bg-cover bg-center h-[75vh] mt-20 text-white" style={{ backgroundImage: "url('/images/football1.webp')" }}>
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
-                    <div className="text-center mx-1">
-                        <h1 className="text-5xl font-bold mb-4">Welcome to Aryans FC Pune</h1>
-                        <p className="text-lg text-left mx-12 mb-6 ">We are delighted to welcome you to our Academy. The Club has a proud tradition of developing
+                    <div className="text-center mx-4 sm:mx-8 md:mx-24">
+                        <h1 className="text-3xl sm:text-5xl font-bold mb-4">Welcome to Aryans FC Pune</h1>
+                        <p className="text-sm sm:text-lg text-left mb-4 sm:mb-6">We are delighted to welcome you to our Academy. The Club has a proud tradition of developing
                             home grown footballers, many of whom have gone on to play not only in our first team but have also represented State and
                             Nation.<br />We sincerely hope that you enjoy your experience as a player within our Academy and look forward to seeing you
-                            progress through our system</p><p className="text-xl text-right mx-12 mb-6"> ~ Best wishes & Good Luck
+                            progress through our system.</p><p className="text-md sm:text-xl text-right mb-4 sm:mb-6"> ~ Best wishes & Good Luck
                                 Aryans Board Members
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* About Section */}
             <section className="py-12 bg-gray-100">
                 <div className="container mx-auto px-4 my-0">
                     <div className=" flex flex-col md:flex-row my-2 bg-light w-[95%] mx-auto rounded-xl">
@@ -85,22 +83,22 @@ const Home = () => {
 
             {/* Additional Sections */}
             <section className="bg-cover bg-center w-[100%] py-16" style={{ backgroundImage: "url('/images/footballpitch.webp')" }}>
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl text text-stone-900 font-bold mb-4 text-center">For Admission and Enquiry Contact</h2>
-                    <h3 className="text-stone-800 text-2xl font-bold text-center pb-8">
+                <div className="container mx-auto my-4 px-4">
+                    <h2 className="text-3xl font-bold mb-4 text-center" style={{textShadow: '2px 2px 4px rgba(215, 215, 215, 0.86)' }}>For Admission and Enquiry Contact</h2>
+                    <h3 className="text-stone-800 text-2xl font-bold text-center pb-8" style={{textShadow: '2px 2px 4px rgba(215, 215, 215, 0.86)' }}>
                         9657650293
                     </h3>
                     {/* Add content about your team here */}
                 </div>
             </section>
 
-            <div className="container bg-gray-100 rounded-lg min-h-52 w-4/5 my-6 mx-auto px-10">
+            <div className="container bg-gray-200 rounded-lg min-h-52 w-4/5 my-6 mx-auto px-10">
                 <h2 className="text-2xl py-4 text-center">Reviews</h2>
                 <Slider className='w-[100%]' {...settings}>
                     {testimonials.map((testimonial) => (
                         <div key={testimonial.id} className="bg-white shadow-lg rounded-lg p-6">
-                            <p className="text-gray-700 text-center mb-4">{testimonial.text}</p>
-                            <p className="text-gray-900 font-semibold text-center">{testimonial.name}</p>
+                            <h4 className="text-gray-700 text-center mb-4">{testimonial.text}</h4>
+                            <h3 className="text-gray-900 font-semibold text-center">{testimonial.name}</h3>
                         </div>
                     ))}
                 </Slider>

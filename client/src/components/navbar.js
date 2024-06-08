@@ -1,5 +1,5 @@
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 import { FaFutbol } from "react-icons/fa";
 
@@ -9,13 +9,31 @@ const Navbar = () => {
     };
 
     const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef(null);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (scrnclick) => {
+            if (menuRef.current && !menuRef.current.contains(scrnclick.target)) {
+                closeMenu();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50">
+        <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50" ref={menuRef}>
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center py-3">
                     <div className='flex items-center'>
@@ -40,11 +58,11 @@ const Navbar = () => {
                 </div>
                 {isOpen && (
                     <div className="md:hidden">
-                        <Link to="/" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Home</Link>
-                        <Link to="/about" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />About</Link>
-                        <Link to="/team" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Our Team</Link>
-                        <Link to="/event" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Events</Link>
-                        <ScrollLink to="contact" smooth duration={500} className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Contact</ScrollLink>
+                        <Link to="/" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800" onClick={closeMenu}><FaFutbol className="inline-block mr-1" />Home</Link>
+                        <Link to="/about" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800" onClick={closeMenu}><FaFutbol className="inline-block mr-1" />About</Link>
+                        <Link to="/team" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800" onClick={closeMenu}><FaFutbol className="inline-block mr-1" />Our Team</Link>
+                        <Link to="/event" className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800" onClick={closeMenu}><FaFutbol className="inline-block mr-1" />Events</Link>
+                        <ScrollLink to="contact" smooth duration={500} className="font-semibold block px-4 py-1 gradient-text hover:text-gray-800" onClick={closeMenu}><FaFutbol className="inline-block mr-1" />Contact</ScrollLink>
                     </div>
                 )}
             </div>

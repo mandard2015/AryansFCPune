@@ -7,7 +7,7 @@ const eventsData = [
         date: '2024-05-11',
         title: 'Farewell to our guest from Russia ',
         description: 'A farewell party to our guest Evan.',
-        images: ['/images/Farewell.webp', '/images/Farewell.webp'],
+        images: ['/images/Farewell.webp', '/images/Farewell1.webp','/images/Farewell3.webp','/images/Farewell2.webp','/images/Farewell4.webp'],
     }, {
         id: 2,
         date: '2024-04-14',
@@ -20,7 +20,7 @@ const eventsData = [
         date: '2024-03-29',
         title: 'Sportz Seminar',
         description: 'Session by: Owners, Technical Staff, Nutritionist, Physio and Founder members',
-        images: ['/images/seminar3.webp', '/images/Farewell.webp'],
+        images: ['/images/seminar1.webp', '/images/seminar2.webp','/images/seminar5.webp','/images/seminar3.webp','/images/seminar4.webp','/images/seminar6.webp'],
     },
     {
         id: 4,
@@ -84,9 +84,9 @@ const Events = () => {
                         <h2 className="text-2xl font-bold mb-2">{selectedEvent.title}</h2>
                         <p className="text-gray-600">{new Date(selectedEvent.date).toLocaleDateString()}</p>
                         <p className="text-gray-700 mb-4">{selectedEvent.description}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-auto md:mx-5">
                             {selectedEvent.images.map((image, index) => (
-                                <img key={index} src={image} alt={`${selectedEvent.title} ${index + 1}`} className="w-full h-auto object-cover rounded-lg" />
+                                <img key={index} src={image} alt={`${selectedEvent.title} ${index + 1}`} className="mx-auto my-auto w-11/12 max-h-[264px] rounded-lg" />
                             ))}
                         </div>
                         <button onClick={closeModal} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

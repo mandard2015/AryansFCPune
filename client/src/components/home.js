@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IoLocationOutline } from 'react-icons/io5';
 import TrainingCenter from './maps';
 // import { Link as ScrollLink } from 'react-scroll';
 
@@ -37,6 +36,18 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+    };
+
+    const settings1 = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true,
+        arrows: true,
     };
 
     return (
@@ -83,7 +94,37 @@ const Home = () => {
                 </div>
             </section>
 
-            <div className="container bg-gray-200 rounded-lg min-h-52 w-11/12 my-6 mx-auto px-10">
+            <section className="py-6 bg-gray-100">
+                <div className="container mx-auto">
+                    <Slider className='values-slider' {...settings1}>
+                        <div>
+                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                <h2 className="text-white text-center mb-2 text-3xl md:text-5xl font-bold">Our Values</h2>
+                                <p className="text-white text-sm font-semibold sm:text-xl px-10 md:px-14">We aim to provide you with quality coaching and education support services in order to provide an excellent 
+                                    all-round experience throughout your time in the Academy. <br />The core values of Aryans Football Club are hard work, 
+                                    honesty, integrity and loyalty. </p>
+                            </div>
+                        </div>
+                        </div>
+                        <div>
+                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Vision</h2>
+                            </div>
+                        </div></div>
+                        <div>
+                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Mission</h2>
+                            </div>
+                        </div>
+                        </div>
+                    </Slider>
+                </div>
+            </section>
+
+            <div className="container bg-gray-200 rounded-lg min-h-52 w-11/12 my-6 mx-auto px-4 md:px-10">
                 <h2 className="text-2xl font-semibold pt-6 text-center">Our Training Centers and Timings</h2>
                 <div className='flex flex-col md:flex-row py-4 mx-auto gap-4'>
                     <TrainingCenter

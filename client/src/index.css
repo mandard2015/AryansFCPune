@@ -8,7 +8,45 @@
     background: linear-gradient(90deg, #ff0000, #182eba);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback color */
+    color: transparent;
+    /* Fallback color */
+  }
+
+  .bg-pattern {
+    background-image:
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg1.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg.png'),
+      url('/public/images/footballbg1.png'),
+      url('/public/images/footballbg.png');
+    background-repeat: no-repeat;
+    background-position:
+      28% 18%,
+      72% 25%,
+      2% 76%,
+      2% 3%,
+      2% 40%,
+      70% 85%,
+      94% 2%,
+      32% 60%,
+      90% 48%,
+      95% 70%;
+    background-size:
+      120px 120px,
+      100px 100px,
+      150px 150px,
+      200px 96px,
+      60px 60px,
+      120px 120px,
+      100px 100px,
+      150px 150px,
+      200px 96px,
+      60px 60px;
   }
 }
 
@@ -31,4 +69,29 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+}
+
+.values-slider .slick-prev,
+.values-slider .slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.values-slider .slick-prev:before,
+.values-slider .slick-next:before {
+  font-size: 40px;
+  color: white;
+}
+
+.values-slider .slick-prev {
+  left: 10px;
+}
+
+.values-slider .slick-next {
+  right: 10px;
+}
+
+.values-slider .slick-dots {
+  display: none;
 }

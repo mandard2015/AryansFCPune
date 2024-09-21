@@ -26,7 +26,7 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li className="flex items-center"><FaEnvelope className="mr-2" /> info@mywebsite.com</li>
                             <li className="flex items-center"><FaPhone className="mr-2" /> 9657650293</li>
-                            <li className="flex items-center"><IoLocationOutline className="mr-2" /> Telco Ground, Ajmera 411018</li>
+                            <li className="flex items-center"><IoLocationOutline className="mr-2" /> Telco Ground, Ajmera,<br /> Masulkar Colony 411018</li>
                         </ul>
                     </div>
                     <div className="w-full md:w-1/4 mb-4 mt-8">
@@ -34,7 +34,7 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li className="flex items-center"><FaEnvelope className="mr-2" /> info@mywebsite.com</li>
                             <li className="flex items-center"><FaPhone className="mr-2" /> 8796601792</li>
-                            <li className="flex items-center"><IoLocationOutline className="mr-2" /> Telco Ground, Ajmera 411018</li>
+                            <li className="flex items-center"><IoLocationOutline className="mr-2" /> Krushna Nagar 411018</li>
                         </ul>
                     </div>
                     <div className="w-full md:w-1/4 mb-4">

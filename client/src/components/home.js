@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,6 +27,11 @@ const testimonials = [
 ];
 
 const Home = () => {
+    const [activeTab, setActiveTab] = useState('club');
+    const handleTabChange = (tab) => {
+        setActiveTab(tab);
+    };
+
     const settings = {
         dots: true,
         infinite: true,
@@ -55,7 +60,7 @@ const Home = () => {
             <section className="bg-cover bg-center h-[75vh] mt-20 text-white" style={{ backgroundImage: "url('/images/football1.webp')" }}>
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
                     <div className="text-center mx-4 sm:mx-8 md:mx-24">
-                        <h1 className="text-3xl sm:text-5xl font-bold mb-4">Welcome to Aryans FC Pune</h1>
+                        <h1 className="text-3xl sm:text-5xl font-bold mb-4">Welcome to Aryans Sports Foundation Pune</h1>
                         <p className="text-sm font-semibold sm:text-lg text-left mb-4 sm:mb-6">We are delighted to welcome you to our Academy. The Club has a proud tradition of developing
                             home grown footballers, many of whom have gone on to play not only in our first team but have also represented State and
                             Nation.<br />We sincerely hope that you enjoy your experience as a player within our Academy and look forward to seeing you
@@ -66,10 +71,10 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="py-12 bg-gray-100">
+            <section className="py-6 bg-gray-100">
                 <div className="container mx-auto px-0 my-0">
                     <div className=" flex flex-col md:flex-row my-1 bg-light mx-auto rounded-xl">
-                        <div className="flex-col mt-4">
+                        <div className="flex-col mt-4 pt-4">
                             {/* <h2 className="text-3xl font-bold mb-6 text-center">About Us</h2> */}
                             <p className="text-gray-700 font-semibold md:text-xl mx-4 sm:mx-8 md:ml-24">
                                 Founded in [Year] and nestled in the vibrant city of Pune, Aryans Football Club is a premier institution dedicated
@@ -78,47 +83,108 @@ const Home = () => {
                             <p className="text-gray-700 font-semibold md:text-xl mx-4 sm:mx-8 md:ml-24">At Aryans FC, we believe in the power of youth development. Our
                                 Academy Performance Plan is crafted to attract, develop, and retain the finest young talents in the PCMC region.
                                 With top-tier coaching, state-of-the-art facilities, and a supportive environment, we ensure every player has the opportunity to excel and grow.</p>
-                            <p className="text-gray-700 font-semibold md:text-xl mx-4 sm:mx-8 md:ml-24">Join us at Aryans Football Club and become part of a passionate
+                            <p className="text-gray-700 font-semibold md:text-xl mx-4 sm:mx-8 md:ml-24">Join us at Aryans Sports Foundation and become part of a passionate
                                 football family. We are excited to accompany you on your journey and watch you thrive in our dynamic program.
                                 Welcome to the next chapter of your football adventure!</p>
                             {/* AryansFCPune is a passionate football club dedicated to fostering talent and achieving excellence on the field.
                         Our mission is to provide a platform for aspiring footballers to showcase their skills and reach new heights in their careers. */}
                         </div>
                         <div className="md:flex-grow text-center mx-1 sm:mx-4 md:mr-24 p-4">
-                            <img className="w-5/6 rounded-3xl mx-auto mb-4"
+                            <img className="w-5/6 rounded-3xl mx-auto mb-2"
                                 // style={{ position: 'center',
                                 src='/images/Aryans logo.webp' alt='Aryans FC' />
-                            <h4 className='font-bold'>Aryans FC Pune</h4>
+                            <h3 className='font-bold text-xl'>Aryans FC Pune</h3>
+                            <p className='font-serif'>Developing Players, by Investing in the Individual.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-6 bg-gray-100">
+            <section className='py-6' style={{ background: "linear-gradient(90deg, #ff0000, #182eba)"}}>
+            <div className='mx-4 sm:mx-8 md:mx-24 my-4'>
+                <div className="flex justify-center gap-8">
+                    <div
+                        className={`w-[50%] h-[25vh] md:h-[35vh] hover:shadow-2xl cursor-pointer rounded-xl ${activeTab === 'club' ? 'opacity-100' : 'opacity-70'}`}
+                        onClick={() => handleTabChange('club')}
+                        style={{
+                            border: 'solid',
+                            borderColor: 'white',
+                            backgroundImage: `url('/images/aryansopen.webp')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                        }}
+                    >
+                        <h2 className='relative text-white font-bold text-3xl text-center top-[80%]' 
+                        style={{ textShadow: '2px 2px 15px rgba(255, 0, 0)' }}>Aryans Football Club</h2>
+                    </div>
+                    <div
+                        className={`w-[50%] h-[25vh] md:h-[35vh] hover:shadow-2xl cursor-pointer rounded-xl ${activeTab === 'academy' ? 'opacity-100' : 'opacity-70'}`}
+                        onClick={() => handleTabChange('academy')}
+                        style={{
+                            border: 'solid',
+                            borderColor: 'white',
+                            backgroundImage: `url('/images/aryansu15.webp')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                        }}
+                    >
+                        <h2 className='relative text-white font-bold md:text-3xl text-center top-[80%]' 
+                        style={{ textShadow: '2px 2px 15px rgba(215, 0, 0)' }}>Aryans Football Academy</h2>
+                    </div>
+                </div>
+
+                {/* Content based on active tab */}
+                {activeTab === 'club' && (
+                    <section className="py-3">
+                        <div className="container mx-auto">
+                            {/* <Slider className='values-slider' {...settings1}>
+                                Slides for Club
+                                Add your slides for Club (Aryans Football Club)
+                            </Slider> */}
+                            <p>clubs players........</p>
+                        </div>
+                    </section>
+                )}
+
+                {activeTab === 'academy' && (
+                    <section className="py-3">
+                        <div className="container mx-auto">
+                            {/* <Slider className='values-slider' {...settings1}>
+                                Slides for Academy
+                                Add your slides for Academy (Aryans Football Academy)
+                            </Slider> */}
+                            <p>academy players........</p>
+                        </div>
+                    </section>
+                )}
+            </div>
+            </section>
+
+            <section className="py-3 bg-gray-100">
                 <div className="container mx-auto">
                     <Slider className='values-slider' {...settings1}>
                         <div>
-                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
-                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
-                                <h2 className="text-white text-center mb-2 text-3xl md:text-5xl font-bold">Our Values</h2>
-                                <p className="text-white text-sm font-semibold sm:text-xl px-10 md:px-14">We aim to provide you with quality coaching and education support services in order to provide an excellent 
-                                    all-round experience throughout your time in the Academy. <br />The core values of Aryans Football Club are hard work, 
-                                    honesty, integrity and loyalty. </p>
+                            <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                                <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                    <h2 className="text-white text-center mb-2 text-3xl md:text-5xl font-bold">Our Values</h2>
+                                    <p className="text-white text-sm font-semibold sm:text-xl px-10 md:px-14">We aim to provide you with quality coaching and education support services in order to provide an excellent
+                                        all-round experience throughout your time in the Academy. <br />The core values of Aryans Football Club are hard work,
+                                        honesty, integrity and loyalty. </p>
+                                </div>
                             </div>
-                        </div>
                         </div>
                         <div>
-                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
-                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
-                                <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Vision</h2>
-                            </div>
-                        </div></div>
+                            <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                                <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                    <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Vision</h2>
+                                </div>
+                            </div></div>
                         <div>
-                        <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
-                            <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
-                                <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Mission</h2>
+                            <div className="relative bg-cover bg-center h-[50vh] md:h-[65vh]" style={{ backgroundImage: "url('/images/3rd div team.webp')", backgroundBlendMode: 'multiply', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                                <div className="absolute inset-0 top-[28%] px-4 sm:px-8 md:px-24">
+                                    <h2 className="text-white text-center text-3xl md:text-4xl font-bold">Our Mission</h2>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </Slider>
                 </div>
@@ -140,7 +206,7 @@ const Home = () => {
                         schedule={['Monday to Saturday', 'Time: 7.30 pm to 9.30 pm']}
                     />
                     <TrainingCenter
-                        name='Krishna Nagar'
+                        name='Krushna Nagar'
                         lat={18.5404}
                         lng={73.8567}
                         schedule={['Monday to Saturday', 'Time: 7.30 pm to 9.30 pm']}
@@ -158,7 +224,7 @@ const Home = () => {
                 <div className="container mx-auto my-4 px-4">
                     <h2 className="text-3xl font-bold mb-4 text-center" style={{ textShadow: '2px 2px 4px rgba(215, 215, 215, 0.86)' }}>For Admission and Enquiry Contact</h2>
                     <h3 className="text-stone-800 text-2xl font-bold text-center pb-8" style={{ textShadow: '2px 2px 4px rgba(215, 215, 215, 0.86)' }}>
-                        Dastagir – 9657650293<br />Pravin - 8796601792
+                        Dastagir Sir – 9657650293<br />Pravin Sir - 8796601792
                     </h3>
                     {/* Add content about your team here */}
                 </div>

@@ -10,7 +10,7 @@ const Team = () => {
                     <p className="text-xl text-center">Meet our dedicated team members who make everything possible.</p>
                     <h3 className="gradient-text text-3xl font-bold mb-2 text-center mt-8">Coaches</h3>
                     <div className='mt-8 '>
-                        <div className="bg-white rounded-lg p-6 mx-auto text-center w-1/3 px-4" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
+                        <div className="bg-white rounded-lg p-6 mx-auto text-center sm:w-1/3 px-4" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
                             <img src="path/to/photo1.jpg" alt="Coach 1" className="w-10/12 h-32 rounded-2xl mx-auto mb-4" />
                             <h3 className="text-xl font-semibold">Hemant</h3>
                             <p className="text-gray-600">Head Coach</p>
@@ -33,7 +33,6 @@ const Team = () => {
                             <h3 className="text-xl font-semibold"> Name 3</h3>
                             <p className="text-gray-600">Position 3</p>
                         </div>
-                        {/* Add more team member cards as needed */}
                     </div>
                     <div className="bg-white rounded-lg mt-8 mx-auto p-4 text-center w-11/12" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
                         <img src="/images/3rd div team.webp" alt="3rd Division Team" className="w-11/12 h-auto rounded-2xl mx-auto mb-4" />

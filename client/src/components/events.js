@@ -78,9 +78,9 @@ const Events = () => {
             </div>
 
             {selectedEvent && (
-                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal w-11/12 md:w-4/5 max-h-full overflow-y-auto mx-auto mt-10 rounded-lg" 
+                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal w-11/12 md:w-4/5 max-h-[85%] overflow-y-auto mx-auto mt-10 rounded-lg" 
                 overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                    <div className="bg-white p-6 mt-16 rounded-lg">
+                    <div className="bg-white p-6 rounded-lg">
                         <h2 className="text-2xl font-bold mb-2">{selectedEvent.title}</h2>
                         <p className="text-gray-600">{new Date(selectedEvent.date).toLocaleDateString()}</p>
                         <p className="text-gray-700 mb-4">{selectedEvent.description}</p>

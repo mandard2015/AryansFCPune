@@ -15,7 +15,7 @@ const TrainingCenter = ({ name, lat, lng, schedule }) => {
                     <Marker position={{ lat, lng }} />
                 </GoogleMap>
             </LoadScript>
-            <div className='mt-4 mx-10'>
+            <div className='mt-4 mx-4 md:mx-10'>
                 <h3 className='flex font-semibold items-center'><IoLocationOutline className='mr-2' />{name}</h3>
                 {schedule.map((item, index) => (
                     <h3 key={index} className='font-semibold'>{item}</h3>

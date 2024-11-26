@@ -1,65 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Coaches from './coaches';
+import Players from './players';
 
 const Team = () => {
+    const [activeSection, setActiveSection] = useState(1);
+
+    const handleSectionClick = (sectionNumber) => {
+        setActiveSection(sectionNumber);
+    };
+
     return (
-        <div className="flex flex-col mt-16">
-            {/* <AppNavbar /> */}
-            <main className="flex-grow container mx-auto px-4 py-8">
-                <div className='mx-4 sm:mx-8 md:mx-24'>
-                    <h1 className="gradient-text text-3xl font-bold mb-2 text-center mt-8">Our Team</h1>
-                    <p className="text-xl text-center">Meet our dedicated team members who make everything possible.</p>
-                    <h3 className="gradient-text text-3xl font-bold mb-2 text-center mt-8">Coaches</h3>
-                    <div className='mt-8 '>
-                        <div className="bg-white rounded-lg p-6 mx-auto text-center sm:w-1/3 px-4" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo1.jpg" alt="Coach 1" className="w-10/12 h-32 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold">Hemant</h3>
-                            <p className="text-gray-600">Head Coach</p>
-                        </div>
-                    </div>
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10" >
-                        {/* Team member cards */}
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo1.jpg" alt="Coach 1" className="w-11/12 h-32 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 1</h3>
-                            <p className="text-gray-600">Position 1</p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo2.jpg" alt="Coach 2" className="w-11/12 h-24 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 2</h3>
-                            <p className="text-gray-600">Position 2</p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo3.jpg" alt="Coach 3" className="w-11/12 h-24 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 3</h3>
-                            <p className="text-gray-600">Position 3</p>
-                        </div>
-                    </div>
-                    <div className="bg-white rounded-lg mt-8 mx-auto p-4 text-center w-11/12" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                        <img src="/images/3rd div team.webp" alt="3rd Division Team" className="w-11/12 h-auto rounded-2xl mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold">3rd Division Team</h3>
-                    </div>
-                    <h3 className="gradient-text text-3xl font-bold mb-2 text-center mt-8">Coaches</h3>
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        {/* Team member cards */}
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo1.jpg" alt="Coach 1" className="w-11/12 h-24 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 1</h3>
-                            <p className="text-gray-600">Position 1</p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo2.jpg" alt="Coach 2" className="w-11/12 h-24 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 2</h3>
-                            <p className="text-gray-600">Position 2</p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 text-center" style={{ boxShadow: '2px 2px 8px 2px rgba(0, 0, 0, 0.1)' }}>
-                            <img src="path/to/photo3.jpg" alt="Coach 3" className="w-11/12 h-24 rounded-2xl mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold"> Name 3</h3>
-                            <p className="text-gray-600">Position 3</p>
-                        </div>
-                        {/* Add more team member cards as needed */}
-                    </div>
-                </div>
-            </main>
+        <div className="min-h-[80vh] mt-24 bg-white pt-6 px-1 sm:px-6">
+            <h1 className="gradient-text text-3xl font-bold mb-2 text-center">Our Team</h1>
+            <p className="text-xl text-center mb-4">Meet our dedicated team members who make everything possible.</p>
+            <Menu activeSection={activeSection} onSectionClick={handleSectionClick} />
+            <div className="content mt-4">
+                {activeSection === 1 && <Coaches />}
+                {activeSection === 2 && <Players />}
+            </div>
+        </div>
+    );
+};
+
+const Menu = ({ activeSection, onSectionClick }) => {
+    return (
+        <div className="flex justify-around my-6">
+            <button
+                className={`text-2xl font-semibold w-1/2 py-2 hover:scale-105 hover:shadow-md relative ${activeSection === 1 ? 'bg-gradient-to-r from-red-700 to-blue-900 text-white' : 'bg-red-200 text-red-800'}`}
+                onClick={() => onSectionClick(1)}
+            >
+                Trainers
+                <span className={`absolute bottom-0 left-0 w-full h-1 bg-red-600 transform transition-transform ${activeSection === 1 ? 'scale-x-100' : 'scale-x-0'}`}></span>
+            </button>
+            <button
+                className={`text-2xl font-semibold w-1/2 py-2 hover:scale-105 hover:shadow-md relative ${activeSection === 2 ? 'bg-gradient-to-r from-red-700 to-blue-900 text-white' : 'bg-red-200 text-red-800'}`}
+                onClick={() => onSectionClick(2)}
+            >
+                Players
+                <span className={`absolute bottom-0 left-0 w-full h-1 bg-red-600 transform transition-transform ${activeSection === 2 ? 'scale-x-100' : 'scale-x-0'}`}></span>
+            </button>
         </div>
     );
 };

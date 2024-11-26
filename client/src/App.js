@@ -7,7 +7,6 @@ import Team from './components/Team';
 import Events from './components/events';
 import Footer from './components/footer';
 import WhatsAppIcon from './components/whatsappIcon';
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

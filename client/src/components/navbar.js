@@ -34,18 +34,18 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50" ref={menuRef}>
-            <div className="container mx-auto px-4 sm:px-8">
-                <div className="flex justify-between items-center py-3">
+            <div className="container mx-auto px-2 sm:px-8">
+                <div className="flex justify-between items-center h-[5.6rem] py-3">
                     <div className='flex items-center'>
-                        <a><img src='/Aryanslogo512.webp' className='h-14 m-0 p-0' /></a>
-                        <Link to="/" className="text-xl font-bold gradient-text ml-1">Aryans Sports Foundation</Link>
+                        <a><img src='/Aryanslogo512.webp' alt='AryansFC logo' className='h-14 w-14 m-0 p-0' /></a>
+                        <Link to="/" className="text-lg sm:text-xl font-bold gradient-text ml-1">Aryans Sports and Social Foundation</Link>
                     </div>
-                    <div className="hidden md:flex space-x-4">
-                        <Link to="/" className="font-bold gradient-text hover:text-gray-800 "><FaFutbol className="inline-block mr-1" />Home</Link>
-                        <Link to="/about" className="font-bold gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />About Us</Link>
-                        <Link to="/team" className="font-bold gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Our Team</Link>
-                        <Link to="/event" className="font-bold gradient-text hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Events</Link>
-                        <ScrollLink to="contact" smooth duration={500} className="font-bold gradient-text hover:text-gray-800 cursor-pointer"
+                    <div className="hidden text-center text-lg font-bold gradient-text md:flex space-x-4">
+                        <Link to="/" className="hover:text-gray-800 "><FaFutbol className="inline-block mr-1" />Home</Link>
+                        <Link to="/about" className="hover:text-gray-800"><FaFutbol className="inline-block mr-1" />About Us</Link>
+                        <Link to="/team" className="hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Our Team</Link>
+                        <Link to="/event" className="hover:text-gray-800"><FaFutbol className="inline-block mr-1" />Events</Link>
+                        <ScrollLink to="contact" smooth duration={500} className="hover:text-gray-800 cursor-pointer"
                             onClick={scrollToContact}><FaFutbol className="inline-block mr-1" />Contact Us</ScrollLink>
                     </div>
                     <div className="md:hidden">

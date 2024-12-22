@@ -43,7 +43,8 @@ const Footer = () => {
                             <a href="https://www.facebook.com/aryans" className="hover:text-blue-800"><FaFacebook size={30} /></a>
                             <a href="#gmail" className="hover:text-white"><FaEnvelope size={30} /></a>
                             <a href="https://www.instagram.com/aryanspunefc/" className="hover:text-fuchsia-700"><FaInstagram size={30} /></a>
-                            <a href="#whatsapp" className="hover:text-green-600"><FaWhatsapp size={30} /></a>
+                            <a href="https://wa.me/9657650293?text=Hii%2C%20can%20I%20get%20more%20info%20about%20Aryans%20Sports%20and%20Social%20Foundation"
+                                className="hover:text-green-600"><FaWhatsapp size={30} /></a>
                         </div>
                     </div>
                 </div>
